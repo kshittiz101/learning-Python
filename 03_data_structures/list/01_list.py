@@ -31,3 +31,37 @@ for i in fruits_list:
     print(i,end=" ")
 
 
+
+list_of_books = ['mindsets', 'Money talks', 'self improvement', 'Clean Code']
+print(list_of_books)
+
+list_of_books.insert(2,"Atomic Habit")
+print(list_of_books)
+
+list_of_books.reverse()
+print(list_of_books)
+
+list_of_books.sort()
+print(list_of_books)
+
+
+# pop() - will remove element from last index
+electronics = ['laptop', 'mobile', 'pc']
+print(electronics)
+electronics.pop()
+print(electronics)
+
+
+# printing with index
+# The enumerate() function in Python is a built-in function that adds a counter to an iterable and returns it as an enumerate object. This object can then be used in loops to access both the index (or count) and the value of each item in the iterable simultaneously. 
+
+ingridents = ['water', 'coffee power', 'suger']
+for i, fruit in enumerate(ingridents):
+    print(i, fruit)
+
+list_of_nums = [10,20,30,40]
+total_sum = sum(list_of_nums)
+print(total_sum)
+print("total length of the list:", len(list_of_nums))
+print("Minimum value in the list:",min(list_of_nums))
+print("Max vale in the list:", max(list_of_nums))
