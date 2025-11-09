@@ -214,3 +214,117 @@ print(result)  # [1, 9, 25]
 * Essential for most Python data handling tasks.
 
 ---
+
+## bytearray
+
+In Python, a **byte array (`bytearray`)** is a **mutable sequence of bytes** — meaning it stores binary data (numbers between `0–255`) that you can **change after creation**.
+
+It’s often used when working with **binary files**, **network data**, **encryption**, or **image/audio processing**.
+
+---
+
+### 🔹 1. **Basic Example**
+
+```python
+data = bytearray([65, 66, 67])
+print(data)
+print(data.decode())  # Convert to string
+```
+
+**Output:**
+
+```
+bytearray(b'ABC')
+ABC
+```
+
+Here,
+
+* `65`, `66`, `67` are ASCII codes for `'A'`, `'B'`, `'C'`.
+* `bytearray(b'ABC')` represents raw bytes.
+
+---
+
+### 🔹 2. **Creating a bytearray**
+
+There are several ways to create one:
+
+```python
+# From a list of integers
+b1 = bytearray([65, 66, 67])
+
+# From a string (must encode)
+b2 = bytearray("Hello", "utf-8")
+
+# From bytes
+b3 = bytearray(b"Python")
+
+# Empty bytearray of length 5 (default 0)
+b4 = bytearray(5)
+```
+
+---
+
+### 🔹 3. **Mutable nature**
+
+Unlike `bytes`, you can modify elements of a `bytearray`:
+
+```python
+data = bytearray(b"Hello")
+data[0] = 74  # Replace 'H' with 'J'
+print(data)
+print(data.decode())
+```
+
+**Output:**
+
+```
+bytearray(b'Jello')
+Jello
+```
+
+---
+
+### 🔹 4. **Common Use Cases**
+
+| Use Case                      | Example                                                 |
+| ----------------------------- | ------------------------------------------------------- |
+| Reading binary files          | `data = bytearray(open("file.bin", "rb").read())`       |
+| Sending network packets       | `socket.send(bytearray(message, 'utf-8'))`              |
+| Encryption / compression      | `hashlib`, `zlib`, and `base64` use bytes or bytearrays |
+| Efficient mutable binary data | Useful when you need to modify bytes in place           |
+
+---
+
+### 🔹 5. **Difference: `bytes` vs `bytearray`**
+
+| Feature          | `bytes`               | `bytearray`           |
+| ---------------- | --------------------- | --------------------- |
+| Mutable          | ❌ No                  | ✅ Yes                 |
+| Memory-efficient | ✅                     | ✅                     |
+| Syntax           | `b"Hello"`            | `bytearray(b"Hello")` |
+| Common Use       | Read-only binary data | Editable binary data  |
+
+---
+
+### 🔹 6. **Example: File Write/Read**
+
+```python
+data = bytearray("Binary File Example", "utf-8")
+
+with open("example.bin", "wb") as f:
+    f.write(data)
+
+with open("example.bin", "rb") as f:
+    content = f.read()
+    print(content)
+```
+
+**Output:**
+
+```
+b'Binary File Example'
+```
+
+---
+
